@@ -49,11 +49,4 @@ def generate():
 if __name__ == "__main__":
     app.run(port=8080, host='0.0.0.0', debug=True)
 
-#teste
-#teste2
-#teste3
-#teste4
-#teste5
-#teste6
-#teste7
-#teste8
+#teste9
