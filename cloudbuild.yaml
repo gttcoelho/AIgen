@@ -1,0 +1,29 @@
+# cloudbuild.yaml para implantação contínua do Cloud Run
+
+# Nome do projeto do Google Cloud
+projectId: ${sys.get_env("cnpj-analytics")}
+
+# Nome do serviço do Cloud Run
+serviceName: container-genai-test
+
+# Imagem do contêiner a ser implantada
+# Substitua "my-repo" pelo nome do seu repositório
+# Substitua "my-image" pelo nome da sua imagem
+image: gcr.io/${projectId}/container-test
+
+# Gatilho de implantação contínua
+# Este gatilho será acionado sempre que houver um push para o branch "main"
+triggers:
+  - event: google.github.push
+    branch: main
+
+# Etapas de construção
+steps:
+  # Etapa 1: Construir a imagem do contêiner
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "${image}", "."]
+
+  # Etapa 2: Implantar a imagem do contêiner no Cloud Run
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args: ["run", "deploy", "${serviceName}", "--image", "${image}", "--platform", "managed"]
