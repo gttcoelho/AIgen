@@ -41,7 +41,7 @@ def generate():
 
   delimiter = ""
   result_string = delimiter.join(response_list)
-  return result_string
+  return "Done" #result_string
 
   #for response in responses:
     #print(response.text, end="")
