@@ -3,7 +3,7 @@
 apiVersion: v2
 
 # Nome do projeto do Google Cloud
-projectId: ${sys.get_env("cnpj-analytics")}
+projectId: ${sys.get_env(cnpj-analytics)}
 
 # Nome do serviço do Cloud Run
 # Substitua "container-genai-test" pelo nome do seu serviço
