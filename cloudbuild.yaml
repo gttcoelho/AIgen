@@ -9,7 +9,7 @@ serviceName: container-genai-test
 # Imagem do contêiner a ser implantada
 # Substitua "my-repo" pelo nome do seu repositório
 # Substitua "my-image" pelo nome da sua imagem
-image: gcr.io/${projectId}/container-test
+image: gcr.io/${projectId}/container-test/image-test
 
 # Gatilho de implantação contínua
 # Este gatilho será acionado sempre que houver um push para o branch "main"
