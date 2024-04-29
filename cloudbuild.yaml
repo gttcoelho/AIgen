@@ -14,7 +14,7 @@ services:
 # Substitua "my-repo" pelo nome do seu repositório
 # Substitua "my-image" pelo nome da sua imagem
 images:
-  - name: "gcr.io/cnpj-analytics/container-test/image-test"
+  - "gcr.io/cnpj-analytics/container-test/image-test"
 
 # Gatilho de implantação contínua
 # Este gatilho será acionado sempre que houver um push para o branch "main"
