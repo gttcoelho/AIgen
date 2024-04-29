@@ -1,6 +1,6 @@
 # cloudbuild.yaml para implantação contínua do Cloud Run
 
-apiVersion: v2
+apiVersion: v1
 
 # Nome do projeto do Google Cloud
 projectId: "cnpj-analytics"
