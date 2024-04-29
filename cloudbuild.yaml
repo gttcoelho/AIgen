@@ -4,15 +4,15 @@
 # Substitua "my-repo" pelo nome do seu repositório
 # Substitua "my-image" pelo nome da sua imagem
 images:
-  - "gcr.io/cnpj-analytics/container-test/image-test"
+  - "gcr.io/cnpj-analytics/container-teste/image-test"
 
 # Etapas de construção
 steps:
   # Etapa 1: Construir a imagem do contêiner
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "${images[0].name}", "."]
+    args: ["build", "-t", "gcr.io/cnpj-analytics/container-teste/image-test", "."]
 
   # Etapa 2: Implantar a imagem do contêiner no Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
-    args: ["run", "deploy", "container-genai-test", "--image", "${images[0].name}", "--platform", "managed"]
+    args: ["run", "deploy", "container-genai-test", "--image", "gcr.io/cnpj-analytics/container-teste/image-test", "--platform", "managed"]
