@@ -10,9 +10,9 @@ images:
 steps:
   # Etapa 1: Construir a imagem do contêiner
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/cnpj-analytics/container-teste/image-test", "."]
+    args: ["build", "-t", "gcr.io/cnpj-analytics/container-teste", "."]
 
   # Etapa 2: Implantar a imagem do contêiner no Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
-    args: ["run", "deploy", "container-genai-test", "--image", "gcr.io/cnpj-analytics/container-teste/image-test", "--region", "us-central1", "--allow-unauthenticated",  "--platform", "managed"]
+    args: ["run", "deploy", "container-genai-test", "--image", "gcr.io/cnpj-analytics/container-teste", "--region", "us-central1", "--allow-unauthenticated",  "--platform", "managed"]
