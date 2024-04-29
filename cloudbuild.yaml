@@ -3,11 +3,6 @@
 # Nome do projeto do Google Cloud
 projectId: "cnpj-analytics"
 
-# Nome do serviço do Cloud Run
-# Substitua "container-genai-test" pelo nome do seu serviço
-services:
-  - name: "container-genai-test"
-
 # Imagem do contêiner a ser implantada
 # Substitua "my-repo" pelo nome do seu repositório
 # Substitua "my-image" pelo nome da sua imagem
@@ -29,4 +24,4 @@ steps:
   # Etapa 2: Implantar a imagem do contêiner no Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
-    args: ["run", "deploy", "${services[0].name}", "--image", "${images[0].name}", "--platform", "managed"]
+    args: ["run", "deploy", "container-genai-test", "--image", "${images[0].name}", "--platform", "managed"]
