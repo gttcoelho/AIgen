@@ -3,18 +3,18 @@
 apiVersion: v2
 
 # Nome do projeto do Google Cloud
-projectId: cnpj-analytics
+projectId: "cnpj-analytics"
 
 # Nome do serviço do Cloud Run
 # Substitua "container-genai-test" pelo nome do seu serviço
 services:
-  - name: container-genai-test
+  - name: "container-genai-test"
 
 # Imagem do contêiner a ser implantada
 # Substitua "my-repo" pelo nome do seu repositório
 # Substitua "my-image" pelo nome da sua imagem
 images:
-  - name: image-test
+  - name: "gcr.io/cnpj-analytics/container-test/image-test"
 
 # Gatilho de implantação contínua
 # Este gatilho será acionado sempre que houver um push para o branch "main"
@@ -25,10 +25,10 @@ triggers:
 # Etapas de construção
 steps:
   # Etapa 1: Construir a imagem do contêiner
-  - name: gcr.io/cloud-builders/docker
+  - name: "gcr.io/cloud-builders/docker"
     args: ["build", "-t", "${images[0].name}", "."]
 
   # Etapa 2: Implantar a imagem do contêiner no Cloud Run
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
     args: ["run", "deploy", "${services[0].name}", "--image", "${images[0].name}", "--platform", "managed"]
