@@ -3,9 +3,8 @@
 # Imagem do contêiner a ser implantada
 # Substitua "my-repo" pelo nome do seu repositório
 # Substitua "my-image" pelo nome da sua imagem
-#images:
-#  - "gcr.io/cnpj-analytics/container-teste/image-test"
-
+images:
+  - "gcr.io/cnpj-analytics/container-teste/image-teste"
 # Etapas de construção
 steps:
   # Etapa 1: Construir a imagem do contêiner
@@ -15,5 +14,5 @@ steps:
   # Etapa 2: Implantar a imagem do contêiner no Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
-    args: ["run", "deploy", "container-genai-teste", "--image", "gcr.io/cnpj-analytics/container-teste", "--region", "us-central1", "--allow-unauthenticated",  "--platform", "managed"]
+    args: ["run", "deploy", "container-genai-teste", "--image", "gcr.io/cnpj-analytics/container-teste/image-teste", "--region", "us-central1", "--allow-unauthenticated",  "--platform", "managed"]
 #
