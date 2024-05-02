@@ -9,7 +9,7 @@ images:
 steps:
   # Etapa 1: Construir a imagem do contêiner
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/cnpj-analytics/container-teste/image-teste", "."]
+    args: ["build", "submit", "--tag", "gcr.io/cnpj-analytics/container-teste/image-teste", "."]
 
   # Etapa 2: Implantar a imagem do contêiner no Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
