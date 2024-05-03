@@ -4,14 +4,14 @@
 # Substitua "my-repo" pelo nome do seu repositório
 # Substitua "my-image" pelo nome da sua imagem
 images:
-  - "gcr.io/cnpj-analytics/container-teste:$(COMMIT_SHA)"
+  - "gcr.io/cnpj-analytics/container-teste:$(COMMIT_SHA_SHORT)"
 # Etapas de construção
 steps:
   # Etapa 1: Construir a imagem do contêiner
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/cnpj-analytics/container-teste:$(COMMIT_SHA)", "."]
+    args: ["build", "-t", "gcr.io/cnpj-analytics/container-teste:$(COMMIT_SHA_SHORT)", "."]
 
   # Etapa 2: Implantar a imagem do contêiner no Cloud Run
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
-    args: ["run", "deploy", "container-genai-teste", "--image", "gcr.io/cnpj-analytics/container-teste:$(COMMIT_SHA)", "--region", "us-central1", "--allow-unauthenticated",  "--platform", "managed"]
+    args: ["run", "deploy", "container-genai-teste", "--image", "gcr.io/cnpj-analytics/container-teste:$(COMMIT_SHA_SHORT)", "--region", "us-central1", "--allow-unauthenticated",  "--platform", "managed"]
