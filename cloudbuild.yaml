@@ -1,10 +1,8 @@
 
-
 # Imagem do contêiner a ser implantada
-# Substitua "my-repo" pelo nome do seu repositório
-# Substitua "my-image" pelo nome da sua imagem
-images:
-  - "gcr.io/cnpj-analytics/container-teste"
+
+#images:
+#  - "gcr.io/cnpj-analytics/container-teste"
 # Etapas de construção
 steps:
   ## Etapa 1: Construir a imagem do contêiner
